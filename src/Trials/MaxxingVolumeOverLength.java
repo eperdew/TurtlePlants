@@ -15,7 +15,7 @@ import TurtleInstructions.InstructionMap;
 import TurtleInstructions.Move;
 import Mutation.*;
 
-public class MinimizingDistFromCenter {
+public class MaxxingVolumeOverLength {
 
 	public static final double ADDMATCH_RATE = .03;
 	public static final double ADDOUTPUT_RATE = .1;
@@ -26,8 +26,8 @@ public class MinimizingDistFromCenter {
 
 	public static final double MUTATOR_RATE = .7;
 
-	public static final int MU = 300;
-	public static final int LAMBDA = 300;
+	public static final int MU = 500;
+	public static final int LAMBDA = 500;
 
 	public static final int DEPTH = 8;
 	
@@ -41,7 +41,7 @@ public class MinimizingDistFromCenter {
 		 * down and up A and D are turn left and right
 		 */
 		Alphabet alpha = new Alphabet("WQEFRAD");
-		Evaluator eval = new DistFromCenter();
+		Evaluator eval = new VolumeOverLength();
 
 		// Add the six standard rule mutations
 		ArrayList<RuleMutation> ruleMutations = new ArrayList<RuleMutation>();
@@ -63,7 +63,7 @@ public class MinimizingDistFromCenter {
 		// Create the combinator
 		Combinator combo = new Combinator(mutator);
 
-		double angle = 20;
+		double angle = 90;
 
 		HashMap<String, Instruction> interp = new HashMap<String, Instruction>();
 		interp.put("W", new Instruction(Move.FORWARD, .5));
