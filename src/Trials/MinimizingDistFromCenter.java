@@ -15,7 +15,7 @@ import TurtleInstructions.InstructionMap;
 import TurtleInstructions.Move;
 import Mutation.*;
 
-public class AlternateDensity {
+public class MinimizingDistFromCenter {
 
 	public static final double ADDMATCH_RATE = .03;
 	public static final double ADDOUTPUT_RATE = .03;
@@ -41,7 +41,7 @@ public class AlternateDensity {
 		 * down and up A and D are turn left and right
 		 */
 		Alphabet alpha = new Alphabet("WQEFRAD");
-		Evaluator eval = new LengthOverMaxDist();
+		Evaluator eval = new DistFromCenter();
 
 		// Add the six standard rule mutations
 		ArrayList<RuleMutation> ruleMutations = new ArrayList<RuleMutation>();
@@ -63,7 +63,7 @@ public class AlternateDensity {
 		// Create the combinator
 		Combinator combo = new Combinator(mutator);
 
-		double angle = 120;
+		double angle = 30;
 
 		HashMap<String, Instruction> interp = new HashMap<String, Instruction>();
 		interp.put("W", new Instruction(Move.FORWARD, .5));

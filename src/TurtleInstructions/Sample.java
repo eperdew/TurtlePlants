@@ -22,4 +22,10 @@ public class Sample {
 			t.twist(120);
 		}
 	}
+	
+	private static void boo(Turtle t, int iter){
+		if (iter <= 0) return;
+
+		
+	}
 }
